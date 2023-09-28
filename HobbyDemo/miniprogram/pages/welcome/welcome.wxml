@@ -1,0 +1,28 @@
+<!-- pages/welcome/welcome.wxml -->
+<template name="userInfoTemp">
+    <view class="littleItem">
+        <label>姓名：{{name}}</label>
+    </view>
+    <view class="littleItem">
+        <label>年龄：{{age}}</label>
+    </view>
+</template>
+
+<view class="contentview">
+    <view class="item">
+        <input type="text" class="boderClass" value="{{welcomeValue}}" />
+    </view>
+
+    <view class="item">
+        <label>爱好：</label>
+        <checkbox-group bindchange="">
+            <view wx:for="{{checkboxItems}}">
+                <checkbox value="{{item.value}}"/>{{item.name}}
+            </view>
+        </checkbox-group>
+    </view>
+
+    <view class="itemLast">
+        <template is="userInfoTemp" data="{{...userInfo}}"/>
+    </view>
+</view>
